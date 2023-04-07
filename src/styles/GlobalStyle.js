@@ -1,25 +1,28 @@
 import { createGlobalStyle } from "styled-components";
+import fluid from "@/utils/fluid";
 
 const GlobalStyle = createGlobalStyle`
 /* root font size must be fixed */
-/* scale 1.067, 14px, 320px viewport and 1.2 18px, 1920px viewport */
+/* scale 1.067, 14px, 320px viewport and 1.2 16.8px, 1440px viewport */
 /* viewport - viewport, fluid-container-padding - fluid container horizontal padding */
 :root {
-  --fluid-lg: clamp(1.2101247690rem, calc(0.8922777225rem + 1.58923523100vw), 2.79936rem);
-  --fluid-h1: clamp(1.1341375530rem, calc(0.8944050633rem + 1.19866244700vw), 2.33280rem);
-  --fluid-h2: clamp(1.0629217930rem, calc(0.8867061512rem + 0.88107820740vw), 1.94400rem);
-  --fluid-h3: clamp(0.9961778750rem, calc(0.8714134500rem + 0.62382212500vw), 1.62000rem);
-  --fluid-h4: clamp(0.9336250000rem, calc(0.8503500000rem + 0.41637500000vw), 1.35000rem);
-  --fluid-h5: clamp(0.8750000000rem, calc(0.8250000000rem + 0.25000000000vw), 1.12500rem);
-  --fluid-h6: clamp(0.8200562324rem, calc(0.7965674789rem + 0.11744376760vw), 0.93750rem);
-  --fluid-sm: clamp(0.7685625421rem, calc(0.7660250505rem + 0.01268745789vw), 0.78125rem);
+  --fluid-lg: clamp(1.21rem, calc(0.81rem + 2.00vw), 2.61rem);
+  --fluid-h1: clamp(1.13rem, calc(0.84rem + 1.49vw), 2.18rem);
+  --fluid-h2: clamp(1.06rem, calc(0.85rem + 1.07vw), 1.81rem);
+  --fluid-h3: clamp(1.00rem, calc(0.85rem + 0.74vw), 1.51rem);
+  --fluid-h4: clamp(0.93rem, calc(0.84rem + 0.47vw), 1.26rem);
+  --fluid-h5: clamp(0.88rem, calc(0.83rem + 0.25vw), 1.05rem);
+  --fluid-h6: clamp(0.82rem, calc(0.80rem + 0.08vw), 0.88rem);
+  --fluid-sm: clamp(0.73rem, calc(0.78rem + -0.06vw), 0.77rem);
   --fluid-line-height: calc(1.8em - .4 * ((100vw - 29.08324552em) / (77.58342115)));
 
-  --viewportSmall: 375;
-  --viewportMedium: 768;
-  --viewportLarge: 1440;
-  --viewportMin: 375;
-  --viewportMax: 1920;
+  --grey: #252525;
+
+  /* --viewport-small: 375;
+  --viewport-medium: 768;
+  --viewport-large: 1440;
+  --viewport-min: 375;
+  --viewport-max: 1440; */
 }
 
 /* to prevent font-size looping use :not()*/
@@ -45,7 +48,7 @@ p {line-height: 1.4em;}
 * {
   box-sizing: border-box;
   margin: 0;
-  outline: rgba(25, 250, 25) solid 1px;
+  /* outline: rgba(25, 250, 25) solid 1px; */
 }
 
 html {
@@ -59,12 +62,15 @@ body {
     background-color: var(--white);
 }
 
-a {
+a:any-link {
     text-decoration: none;
-    color: #337ab7;
+    color: inherit;
 }
 
-a:hover, a:focus {text-decoration: underline;}
+a:any-link:hover, a:any-link:focus {
+    cursor: pointer;
+    text-decoration: none;
+}
 
 abbr:hover , acronym:hover { cursor: help;}
 
@@ -136,6 +142,15 @@ label {
 button:hover, input[type="button"]:hover, input[type="submit"]:hover, input[type="reset"]:hover {
     cursor: pointer;
 }
+
+.container {
+    width: 100vw;
+    padding-inline: ${fluid.container()};
+}
+
+/* ::-webkit-scrollbar {
+    display: none;
+} */
 `;
 
 export default GlobalStyle;

@@ -1,4 +1,19 @@
 import Head from 'next/head'
+import NavBar from '@/components/Navbar'
+import styled from 'styled-components'
+
+const Hero = styled.div`
+  width: 100vw;
+  height: 600vh;
+  background-color: pink;
+  color: white;
+  display: grid;
+  place-content: center;
+`
+
+const Header = styled.header`
+  
+`
 
 export default function Home() {
   return (
@@ -9,9 +24,17 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <header>
-        <div className='hero'></div>
-      </header>
+      <Header>
+        <NavBar/>
+        <Hero className='container'>
+          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quaerat voluptatem numquam labore, repudiandae ex deleniti libero doloribus quam corrupti molestias minima iusto ipsam, necessitatibus itaque fugit ut ab alias aliquid.</p>
+          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quaerat voluptatem numquam labore, repudiandae ex deleniti libero doloribus quam corrupti molestias minima iusto ipsam, necessitatibus itaque fugit ut ab alias aliquid.</p>
+          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quaerat voluptatem numquam labore, repudiandae ex deleniti libero doloribus quam corrupti molestias minima iusto ipsam, necessitatibus itaque fugit ut ab alias aliquid.</p>
+          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quaerat voluptatem numquam labore, repudiandae ex deleniti libero doloribus quam corrupti molestias minima iusto ipsam, necessitatibus itaque fugit ut ab alias aliquid.</p>
+          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quaerat voluptatem numquam labore, repudiandae ex deleniti libero doloribus quam corrupti molestias minima iusto ipsam, necessitatibus itaque fugit ut ab alias aliquid.</p>
+          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quaerat voluptatem numquam labore, repudiandae ex deleniti libero doloribus quam corrupti molestias minima iusto ipsam, necessitatibus itaque fugit ut ab alias aliquid.</p>
+        </Hero>
+      </Header>
     </>
   )
 }
