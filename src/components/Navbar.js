@@ -1,28 +1,27 @@
 import styled from 'styled-components'
+import media from '@/utils/media';
+import setStyleTag from '@/utils/cssvar';
+
+import Hamburger from './Hamburger';
+import Nav from './Nav';
 
 const NavBarStyled = createNavBarStyled()
 
 export default function NavBar(props) {
   setOnScroll()
   return (
-    <NavBarStyled className={`${props.className} navbar container`}>
+    <NavBarStyled className={`navbar container`}>
       <div className='navbar--logo'/>
       <span>STOCK</span>
-      <nav className='primary-menu'>
-        <li><a href="">About</a></li>
-        <li><a href="">Projects</a></li>
-        <li><a href="">Journal</a></li>
-        <li><a href="">Media</a></li>
-        <li><a href="">Contact</a></li>
-      </nav>
-      <div className="hamburger-menu"/>
+      <Nav/>
+      <Hamburger/>
     </NavBarStyled>
   );
 }
 
 function createNavBarStyled() {
   return styled.div`
-    --navbar-height: 7em;
+    --navbar-height: 6em;
     background-color: transparent;
     color: white;
     height: var(--navbar-height);
@@ -32,6 +31,7 @@ function createNavBarStyled() {
     align-items: center;
     position: fixed;
     top: 0;
+    z-index: 999;
     transition-property: top, height;
     transition-duration: 500ms;
     transition-timing-function: ease-out;
@@ -41,79 +41,30 @@ function createNavBarStyled() {
       background-image: url('/badge-logo.svg');
       background-repeat: no-repeat;
       background-size: cover;
-      --width: 80px;
+      --width: 60px;
       width: var(--width);
       height: calc(var(--width) * (207/216));
+      ${media('display', 'none', 'none', 'block')}
+      margin-inline-end: calc(var(--width) * .2);
     }
 
     span {
       grid-area: name;
       font-family: 'Lora', serif;
       font-weight: 400;
-      font-size: 3.5em;
+      font-size: 2.5em;
+      ${media('font-size', '2em', '2em', '2.5em')}
       letter-spacing: .3em;
-      margin-inline-start: .2em;
 
       transition-property: font-size;
       transition-duration: 500ms;
       transition-timing-function: ease-out;
     }
 
-    .primary-menu {
-      grid-area: nav;
-      list-style: none;
-      display: flex;
-      align-items: center;
-      font-weight: 700;
-      text-transform: uppercase;
-
-      li:not(li:last-child) {
-        margin-inline-end: 1em;
-      }
-
-      li {
-        position: relative;
-        display: flex;
-      }
-
-      li:after {
-        content: "";
-        display: inline-block;
-        width: 100%;
-        height: .2em;
-        transition: transform 300ms ease-out;
-        background-color: white;
-        position: absolute;
-        top: 100%;
-        left: 0;
-        transform: scaleX(0);
-        transform-origin: right;
-      }
-
-      li:hover:after {
-        transform: scaleX(1);
-        transform-origin: left;
-      }
-      
-    }
-
-    .hamburger-menu {
-      grid-area: hamburger;
-      --width: 80px;
-      width: var(--width);
-      height: calc(var(--width) * (207/216));
-      background-color: lightblue;
-      display: none;
-    }
-    /* div {
-      width: 100%;
-      height: 100%;
-      background-color: darksalmon;
-    } */
-
-    &.scrolled:not(&.scrolled.scrolling-down) {
+    &.scrolled {
       --navbar-height: 4em;
-      background-color: rgba(255,192,203,.8);
+      /* background-color: rgba(255,192,203,.8);  */
+      backdrop-filter: blur(4px);
 
       .navbar--logo {
         display: none;
@@ -127,13 +78,21 @@ function createNavBarStyled() {
     }
 
     &.scrolling-down {
-      top: calc(var(--navbar-height) * -1);
+      top: var(--navbar-top);
     }
   `
 }
 
 function setOnScroll() {
   if (typeof document !== 'undefined') {
+
+    let style = `
+      .navbar {
+        --navbar-top: calc(var(--navbar-height) * -1);
+      }
+    `
+
+    setStyleTag('data-nav', style)
 
     let previousTop = 0
 

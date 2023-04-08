@@ -148,9 +148,9 @@ button:hover, input[type="button"]:hover, input[type="submit"]:hover, input[type
     padding-inline: ${fluid.container()};
 }
 
-/* ::-webkit-scrollbar {
+::-webkit-scrollbar {
     display: none;
-} */
+}
 `;
 
 export default GlobalStyle;
