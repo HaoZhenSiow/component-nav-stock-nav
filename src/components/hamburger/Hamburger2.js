@@ -54,6 +54,7 @@ function createHamburger2Styled() {
     grid-area: hamburger;
     ${media('display', 'block', 'block', 'none')}
     cursor: pointer;
+    -webkit-tap-highlight-color: transparent;
     position: relative;
 
     div {
