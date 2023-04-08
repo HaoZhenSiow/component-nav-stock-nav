@@ -1,5 +1,6 @@
 import Head from 'next/head'
 import NavBar from '@/components/Navbar'
+import HiddenMenu from '@/components/HiddenMenu'
 import styled from 'styled-components'
 
 const Hero = styled.div`
@@ -12,20 +13,7 @@ const Hero = styled.div`
 `
 
 const Header = styled.header`
-  .hidden-menu {
-    width: 100vw;
-    min-height: 100vh;
-    position: fixed;
-    top: 0;
-    left: 0;
-    background-color: lightblue;
-    z-index: 998;
-    display: none;
-
-    &.open {
-      display: block;
-    }
-  }
+  
 `
 
 export default function Home() {
@@ -39,7 +27,7 @@ export default function Home() {
       </Head>
       <Header>
         <NavBar/>
-        <div className='hidden-menu' onScroll={e => e.preventDefault()}></div>
+        <HiddenMenu/>
         <Hero className='container'>
           <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quaerat voluptatem numquam labore, repudiandae ex deleniti libero doloribus quam corrupti molestias minima iusto ipsam, necessitatibus itaque fugit ut ab alias aliquid.</p>
           <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quaerat voluptatem numquam labore, repudiandae ex deleniti libero doloribus quam corrupti molestias minima iusto ipsam, necessitatibus itaque fugit ut ab alias aliquid.</p>

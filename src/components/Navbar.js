@@ -2,7 +2,8 @@ import styled from 'styled-components'
 import media from '@/utils/media';
 import setStyleTag from '@/utils/cssvar';
 
-import Hamburger from './Hamburger';
+import Hamburger from './hamburger/Hamburger';
+import Hamburger2 from './hamburger/Hamburger2';
 import Nav from './Nav';
 
 const NavBarStyled = createNavBarStyled()
@@ -14,7 +15,7 @@ export default function NavBar(props) {
       <div className='navbar--logo'/>
       <span>STOCK</span>
       <Nav/>
-      <Hamburger/>
+      <Hamburger2/>
     </NavBarStyled>
   );
 }
