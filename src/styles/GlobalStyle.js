@@ -3,17 +3,17 @@ import fluid from "@/utils/fluid";
 
 const GlobalStyle = createGlobalStyle`
 /* root font size must be fixed */
-/* scale 1.067, 14px, 320px viewport and 1.2 16.8px, 1440px viewport */
+/* scale 1.067, 16px, 320px viewport and 1.2 18px, 1440px viewport */
 /* viewport - viewport, fluid-container-padding - fluid container horizontal padding */
 :root {
-  --fluid-lg: clamp(1.21rem, calc(0.81rem + 2.00vw), 2.61rem);
-  --fluid-h1: clamp(1.13rem, calc(0.84rem + 1.49vw), 2.18rem);
-  --fluid-h2: clamp(1.06rem, calc(0.85rem + 1.07vw), 1.81rem);
-  --fluid-h3: clamp(1.00rem, calc(0.85rem + 0.74vw), 1.51rem);
-  --fluid-h4: clamp(0.93rem, calc(0.84rem + 0.47vw), 1.26rem);
-  --fluid-h5: clamp(0.88rem, calc(0.83rem + 0.25vw), 1.05rem);
-  --fluid-h6: clamp(0.82rem, calc(0.80rem + 0.08vw), 0.88rem);
-  --fluid-sm: clamp(0.73rem, calc(0.78rem + -0.06vw), 0.77rem);
+  --fluid-lg: clamp(1.38rem, calc(0.98rem + 2.02vw), 2.80rem);
+  --fluid-h1: clamp(1.30rem, calc(1.00rem + 1.48vw), 2.33rem);
+  --fluid-h2: clamp(1.22rem, calc(1.01rem + 1.04vw), 1.94rem);
+  --fluid-h3: clamp(1.14rem, calc(1.00rem + 0.69vw), 1.62rem);
+  --fluid-h4: clamp(1.07rem, calc(0.99rem + 0.40vw), 1.35rem);
+  --fluid-h5: clamp(1.00rem, calc(0.96rem + 0.18vw), 1.13rem);
+  --fluid-h6: clamp(0.94rem, calc(0.94rem + 0.00vw), 0.94rem);
+  --fluid-sm: clamp(0.78rem, calc(0.91rem + -0.14vw), 0.88rem);
   --fluid-line-height: calc(1.8em - .4 * ((100vw - 29.08324552em) / (77.58342115)));
 
   --grey: #252525;
