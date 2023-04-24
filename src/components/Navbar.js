@@ -11,9 +11,9 @@ const NavBarStyled = createNavBarStyled()
 export default function NavBar(props) {
   setOnScroll()
   return (
-    <NavBarStyled className={`navbar container`}>
+    <NavBarStyled className="navbar container">
       <div className='navbar--logo'/>
-      <span>STOCK</span>
+      <span className='navbar--title'>STOCK</span>
       <Nav/>
       <Hamburger2/>
     </NavBarStyled>
@@ -23,11 +23,12 @@ export default function NavBar(props) {
 function createNavBarStyled() {
   return styled.div`
     --navbar-height: 6em;
-    background-color: transparent;
+    --navbar-color: rgb(181, 150, 158);
+    background-color: var(--navbar-color);
     color: white;
     height: var(--navbar-height);
     display: grid;
-    grid-template-areas: "logo name . nav hamburger";
+    grid-template-areas: "logo title . nav hamburger";
     grid-template-columns: min-content min-content auto min-content min-content;
     align-items: center;
     position: fixed;
@@ -45,12 +46,12 @@ function createNavBarStyled() {
       --width: 60px;
       width: var(--width);
       height: calc(var(--width) * (207/216));
-      ${media('display', 'none', 'none', 'block')}
       margin-inline-end: calc(var(--width) * .2);
+      ${media('display', 'none', 'none', 'block')}
     }
 
-    span {
-      grid-area: name;
+    .navbar--title {
+      grid-area: title;
       font-family: 'Lora', serif;
       font-weight: 400;
       font-size: 2.5em;
@@ -64,14 +65,12 @@ function createNavBarStyled() {
 
     &.scrolled {
       --navbar-height: 4em;
-      /* background-color: rgba(255,192,203,.8);  */
-      backdrop-filter: blur(4px);
 
       .navbar--logo {
         display: none;
       }
 
-      span {
+      .navbar--title {
         font-size: 2em;
         margin-inline-start: 0;
         transition-property: none;
@@ -80,6 +79,10 @@ function createNavBarStyled() {
 
     &.scrolling-down {
       top: var(--navbar-top);
+    }
+
+    &.open {
+      --navbar-color: #636f65;
     }
   `
 }

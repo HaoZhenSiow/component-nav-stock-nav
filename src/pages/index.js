@@ -1,19 +1,16 @@
 import Head from 'next/head'
+import styled from 'styled-components'
+
 import NavBar from '@/components/Navbar'
 import HiddenMenu from '@/components/HiddenMenu'
-import styled from 'styled-components'
 
 const Hero = styled.div`
   width: 100vw;
   height: 300vh;
-  background-color: pink;
+  background-color: rgb(181, 150, 158);
   color: white;
   display: grid;
   place-content: center;
-`
-
-const Header = styled.header`
-  
 `
 
 export default function Home() {
@@ -25,7 +22,7 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <Header>
+      <header>
         <NavBar/>
         <HiddenMenu/>
         <Hero className='container'>
@@ -36,7 +33,7 @@ export default function Home() {
           <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quaerat voluptatem numquam labore, repudiandae ex deleniti libero doloribus quam corrupti molestias minima iusto ipsam, necessitatibus itaque fugit ut ab alias aliquid.</p>
           <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quaerat voluptatem numquam labore, repudiandae ex deleniti libero doloribus quam corrupti molestias minima iusto ipsam, necessitatibus itaque fugit ut ab alias aliquid.</p>
         </Hero>
-      </Header>
+      </header>
     </>
   )
 }

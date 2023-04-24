@@ -1,7 +1,7 @@
+import { useRef } from 'react';
 import styled from 'styled-components'
 import media from '@/utils/media';
 import setStyleTag from '@/utils/cssvar';
-import { useRef } from 'react';
 
 const Hamburger2Styled = createHamburger2Styled()
 
@@ -11,8 +11,10 @@ export default function Hamburger2(props) {
 
   function toggleHamburger() {
     const hamburger = hamburgerRef.current.classList
+    const navbar = document.querySelector('div.navbar').classList
     const hiddenMenu = document.querySelector('div.hidden-menu').classList
     hamburger.toggle('open')
+    navbar.toggle('open')
     hiddenMenu.toggle('open')
 
     let style = ``
@@ -22,19 +24,10 @@ export default function Hamburger2(props) {
         body {
           overflow: hidden;
         }
-        .navbar {
-          --navbar-top: 0;
-        }
       `
-    } else {
-      style = `
-        .navbar {
-          --navbar-top: calc(var(--navbar-height) * -1);
-        }
-      `
-    }
+    } 
 
-    setStyleTag('data-nav', style)
+    setStyleTag('data-hidden-menu', style)
   }
 
   return (
@@ -76,17 +69,17 @@ function createHamburger2Styled() {
 
     .top-bun {
       transform-origin: left;
-      transition-delay: .7s;
+      transition-delay: .6s;
     }
 
     .meat {
       transform-origin: right;
-      transition-delay: .9s;
+      transition-delay: .8s;
     }
 
     .bottom-bun {
       transform-origin: left;
-      transition-delay: 1.1s;
+      transition-delay: 1s;
     }
 
     .cross {
@@ -100,7 +93,7 @@ function createHamburger2Styled() {
       right: 0;
       transform: translateX(-0.35em) translateY(-0.9em) rotate(-45deg);
       transform-origin: right center;
-      transition-delay: .2s;
+      transition-delay: .1s;
     }
 
     .right-cross {
@@ -132,7 +125,7 @@ function createHamburger2Styled() {
       }
 
       .left-cross {
-        transition-delay: 1.1s;
+        transition-delay: 1s;
       }
       .right-cross {
         transition-delay: .9s;
